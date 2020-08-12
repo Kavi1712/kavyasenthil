@@ -1,0 +1,140 @@
+/*Common CSS*/
+body {
+  width: 100%;
+  margin: auto;
+  padding: 0px 5px; }
+
+* {
+  box-sizing: border-box; }
+
+img {
+  width: 100%; }
+
+/*Common CSS*/
+/* Create two unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+  height: auto;
+  /* Should be removed. Only for demonstration */ }
+
+.left {
+  width: 13%; }
+
+.right {
+  width: 87%; }
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+/*Left Section*/
+/*Accordion*/
+.accordion {
+  cursor: pointer;
+  padding: 5px;
+  width: 100%;
+  text-align: left;
+  font-size: 12px;
+  transition: 0.4s; }
+  .accordion__panel {
+    max-height: 10px;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out; }
+  .accordion--list {
+    padding: 10px;
+    list-style: none; }
+  .accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px; }
+
+.active:after {
+  content: "\2212"; }
+
+.accordion--list li {
+  margin-top: 26px; }
+  .accordion--list li:first-child {
+    margin-top: 0; }
+
+/*Accordion*/
+/*Left Section*/
+/*Right Section*/
+.banner {
+  float: left;
+  width: 65%;
+  padding: 5px;
+  /*Over lay for text*/
+  position: relative;
+  text-align: center;
+  color: white;
+  /*Over lay for text*/ }
+  .banner__txt {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+
+.cardsection {
+  float: right;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap; }
+
+/*Add to cart Section*/
+.product__card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: auto;
+  text-align: center;
+  padding: 10px;
+  height: 513px;
+  flex: 1 33%; }
+  .product__card:hover {
+    border: 1px solid #ccc; }
+  .product__card:hover .product__card--addcart {
+    display: block; }
+  .product__card--addcart {
+    display: none; }
+  .product__card--addcart .product__quick__cart {
+    padding: 8px;
+    width: 48%;
+    background-color: #1b1b1b;
+    border: none;
+    border-radius: 7px; }
+  .product__card--ratting {
+    margin-top: 15px; }
+  .product__card--ratting .product__checked {
+    color: yellow;
+    font-size: 10px; }
+
+.product__quick__cart a {
+  color: #ffffff;
+  text-decoration: none; }
+
+.product__quick__cart:hover {
+  text-decoration: none;
+  background: #005c3e;
+  color: #ffffff;
+  border-color: #005c3e; }
+
+/*Add to Cart Section*/
+/*Right Section*/
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 768px) {
+  .column {
+    width: 100%; }
+
+  /*Benefit Style*/
+  #title_message {
+    visibility: hidden;
+    display: none; }
+
+  .cardsection {
+    width: 100%;
+    display: block; } }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Bestsellers | La Mer&#039;s Best Skincare | La Mer Official Site</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="css/main.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+   <body>
+   	<!--Header Section-->
+   	<header></header>
+   	<!--Header Section-->
+      <!--Body Section-->
+      <div class="main">
+         <div class="row">
+            <!--Left Side Part-->
+            <div class="column left" id="title_message">
+               <p>12 items</p>
+               <hr>
+               <!--Accordion 1 -->
+               <div class="accordion js-accordion"><b>CATEGORY</b></div>
+               <div class="accordion__panel">
+			   <ul id="cat_list" class="accordion--list"></ul>							
+               </div>
+               <hr>
+               <div class="accordion js-accordion"><b>BENEFIT</b></div>
+               <div class="accordion__panel">
+                  <ul class="accordion--list">
+                     <li>Anti-Inflammation / Soothing</li>
+                     <li>Uneven Skintone</li>
+                     <li>Lines / Wrinkles</li>
+                     <li>Early Signs of Aging</li>
+                     <li>Antioxidant Protection</li>
+                     <li>UV Protection</li>
+                     <li>Target Spots</li>
+                     <li>Dark Circles</li>
+                     <li>Eye Puffiness</li>
+                     <li>Oil Control</li>
+                     <li>Cleansing / Toning</li>
+                     <li>Color Coverage</li>
+					 
+					 
+                  </ul>
+               </div>
+               <hr>
+               <!--Accordion 1 -->
+            </div>
+            <!--Left Side Part-->
+            <!--Right Side Part-->
+            <div class="column right">
+			    <div class="row">
+				   <div id="title_products" class="cardsection"></div> 
+				</div>
+			</div>
+            <!--Right Side Part-->
+         </div>
+      </div>
+      <!--Body Section-->
+      <!--Footer Section-->
+      <footer></footer>
+      <!--Footer Section-->
+      <!--Scrpit Section-->
+      <script  src="js/main.js"></script>
+      <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script  src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.0/mustache.min.js"></script>
+      <script id="product_template" type="text/templtae">
+	  {{#products}}
+	<!--Post Card-->
+	    <div class="product__card">
+			    <img class="product__close--img" src="https://raw.githubusercontent.com/wedeploy-examples/supermarket-web-example/master/ui/assets/images/{{{ filename }}}" alt="Denim Jeans" style="height: 50%;width: 50%;"   /> 
+				<div class="product__inner__content">
+					<p class="product__title txt_content">{{title}}</p>
+					<p class="product__desc"><i>{{description}}</i></p>
+					<span class="product__price">from $ {{ price }} / 5 Sizes</span>
+					<div class="product__card--ratting product__checked {{ratting}}" style="color: #dddddd;">
+					    <span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+					</div>
+                        <div class="product__card--addcart">
+                            <p><button class="product__quick__cart"><a  href="#">QUICK SHOP</a></button></p>
+                            <p><span class="add--wishlist"><a href="#">Add to wishlist</a></span></p>
+                        </div>
+                </div>		
+                           
+        </div>
+	<!--Post Card-->
+	{{/products}}
+      </script>
+	  <script id="category_template" type="text/templtae">
+	  {{#productstype}}
+	  
+	  <li>{{type}}</li>
+	  
+	  {{/productstype}}
+	  
+	  
+	  </script>
+      <script>
+      $(document).ready(function(){
+         $.getJSON('http://localhost/css_task_1/products.json', function(data){
+            console.log(data);
+            var template = $('#product_template').html();
+			var category = $('#category_template').html();
+            var info = Mustache.render(template, { products:data });
+			var type = Mustache.render(category, { productstype:data });
+            $("#title_products").html(info);
+			$("#cat_list").html(type);
+          });
+		});
+     </script>
+      <!--Scrpit Section-->
+   </body>
+</html>
